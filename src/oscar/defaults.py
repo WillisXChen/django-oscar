@@ -19,7 +19,7 @@ OSCAR_RECENTLY_VIEWED_COOKIE_SECURE = False
 OSCAR_RECENTLY_VIEWED_PRODUCTS = 20
 
 # Currency
-OSCAR_DEFAULT_CURRENCY = 'GBP'
+OSCAR_DEFAULT_CURRENCY = 'NTD'
 
 # Paths
 OSCAR_IMAGE_FOLDER = 'images/products/%Y/%m/'
@@ -221,6 +221,7 @@ OSCAR_SEARCH_FACETS = {
         # to the template. Same for the 'queries' dict below.
         ('product_class', {'name': _('Type'), 'field': 'product_class'}),
         ('rating', {'name': _('Rating'), 'field': 'rating'}),
+        ('value_date', {'name': _('Value Date'), 'field': 'value_date'}),
         # You can specify an 'options' element that will be passed to the
         # SearchQuerySet.facet() call.  It's hard to get 'missing' to work
         # correctly though as of Solr's hilarious syntax for selecting
