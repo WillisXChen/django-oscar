@@ -20,6 +20,7 @@ class ProductIndex(indexes.SearchIndex, indexes.Indexable):
     # Fields for faceting
     product_class = indexes.CharField(null=True, faceted=True)
     category = indexes.MultiValueField(null=True, faceted=True)
+    checkin_date = indexes.DateField(null=True, faceted=True)
     price = indexes.DecimalField(null=True, faceted=True)
     num_in_stock = indexes.IntegerField(null=True, faceted=True)
     rating = indexes.IntegerField(null=True, faceted=True)
@@ -42,6 +43,15 @@ class ProductIndex(indexes.SearchIndex, indexes.Indexable):
 
     def prepare_product_class(self, obj):
         return obj.get_product_class().name
+    
+    def prepare_checkin_date(self, obj):
+        values = obj.attribute_values.all()
+        checkin_dates = []
+        for value in values:
+            if value.attribute.code is not None and value.attribute.code == "checkin_date":
+                checkin_dates.append(value.value)
+                
+        return checkin_dates
 
     def prepare_category(self, obj):
         categories = obj.categories.all()

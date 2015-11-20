@@ -221,7 +221,7 @@ OSCAR_SEARCH_FACETS = {
         # to the template. Same for the 'queries' dict below.
         ('product_class', {'name': _('Type'), 'field': 'product_class'}),
         ('rating', {'name': _('Rating'), 'field': 'rating'}),
-        ('value_date', {'name': _('Value Date'), 'field': 'value_date'}),
+        ('checkin_date', {'name': _('Checkin Date'), 'field': 'checkin_date'})
         # You can specify an 'options' element that will be passed to the
         # SearchQuerySet.facet() call.  It's hard to get 'missing' to work
         # correctly though as of Solr's hilarious syntax for selecting

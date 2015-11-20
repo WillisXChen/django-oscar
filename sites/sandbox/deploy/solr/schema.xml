@@ -162,6 +162,8 @@
     <field name="num_in_stock_exact" type="long" indexed="true" stored="true" multiValued="false" />
     <field name="date_created" type="date" indexed="true" stored="true" multiValued="false" />
     <field name="_version_" type="long" indexed="true" stored="true"/>
+    <field name="checkin_date" type="date" indexed="true" stored="true" multiValued="false" />
+    <field name="checkin_date_exact" type="date" indexed="true" stored="true" multiValued="false" />
 
   </fields>
 
