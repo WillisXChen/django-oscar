@@ -2,6 +2,7 @@ from collections import defaultdict
 
 from django import forms
 from django.forms.widgets import Input
+from django.forms.widgets import DateInput
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
@@ -20,6 +21,24 @@ class SearchInput(Input):
     back to using the default "text" type
     """
     input_type = 'search'
+
+class CheckInDateInput(DateInput):
+    """
+    Defining a search type widget
+
+    This is an HTML5 thing and works nicely with Safari, other browsers default
+    back to using the default "text" type
+    """
+    input_type = 'checkin_date'
+    
+class CheckOutDateInput(DateInput):
+    """
+    Defining a search type widget
+
+    This is an HTML5 thing and works nicely with Safari, other browsers default
+    back to using the default "text" type
+    """
+    input_type = 'checkout_date'
 
 
 # Build a dict of valid queries
@@ -41,6 +60,22 @@ class SearchForm(FacetedSearchForm):
         required=False, label=_('Search'),
         widget=SearchInput({
             "placeholder": _('Search'),
+            "tabindex": "1",
+            "class": "form-control"
+        }))
+    
+    checkin_date = forms.DateField(
+        required=False, label=_('Checkin Date'),
+        widget=CheckInDateInput({
+            "placeholder": _('2016-01-01'),
+            "tabindex": "1",
+            "class": "form-control"
+        }))
+    
+    checkout_date = forms.DateField(
+        required=False, label=_('Checkout Date'),
+        widget=CheckOutDateInput({
+            "placeholder": _('2016-12-31'),
             "tabindex": "1",
             "class": "form-control"
         }))

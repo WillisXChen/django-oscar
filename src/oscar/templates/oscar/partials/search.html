@@ -2,7 +2,9 @@
 
 <form method="get" action="{% url 'search:search' %}" class="navbar-form navbar-right">
     <div class="form-group">
-        {{ search_form.q }}
+    	{{ search_form.checkin_date }}
+        {{ search_form.checkout_date }}
+        {{ search_form.q }} 
     </div>
     <input type="submit" value="{% trans "Search" %}" class="btn btn-default" />
 </form>
